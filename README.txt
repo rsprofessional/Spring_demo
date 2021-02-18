@@ -1,7 +1,6 @@
 SPRING SECURITY, THYMELEAF and Spring Boot
 ==========================================
 
-A student asked for a Thymeleaf version of the application. This version makes use of Spring Boot
 
 Full solution code is available at this link:
 
