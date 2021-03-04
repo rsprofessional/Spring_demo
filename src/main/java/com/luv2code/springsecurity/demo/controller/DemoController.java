@@ -64,6 +64,19 @@ public class DemoController {
 		return "/user-list";
 	}
 	
+	//new method for payment, security social, etc
+	@GetMapping("/list2")
+	public String listEmployees2(Model theModel) {
+		
+		// get employees from db
+		List<User> theEmployees = userService.findAll();
+		
+		// add to the spring model
+		theModel.addAttribute("users", theEmployees);
+		
+		return "/user_list2";
+	}
+	
 	//add an  user by Id
 	@GetMapping("/delete")
 	public String delete(@RequestParam("userId") int theId) {

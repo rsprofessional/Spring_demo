@@ -11,14 +11,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-	<title>Employee/Users  Directory</title>
+	<title>Employee/Details</title>
 </head>
 
 <body>
 
 <div class="container">
 
-	<h3>Employee/Users Directory</h3>
+	<h3>This page contains all employees(user2) payment information</h3>
 	<hr>
 	
 	<div>
@@ -34,7 +34,7 @@
 		
 		<button class="btn btn-success mb-3" type="submit">Search</button>
 		  &nbsp
-		<a  class="btn btn-success mb-3" th:href="@{/list}" role="button">Show List</a>
+		<a  class="btn btn-success mb-3" th:href="@{/list2}" role="button">Show List</a>
 		 	  
     </form>
     
@@ -83,12 +83,12 @@
 	<div sec:authorize="hasRole('ROLE_ADMIN')">  		
 		
 		<p>
-			<a th:href="@{/list2}">Access to details employees information</a>
+			<a th:href="@{/list}">Acess to aditional employees information</a>
 			(Only for Admins)
 		</p>
 	
 	</div>
-	<a  class="btn btn-success mb-3" th:href="@{/}" role="button">Back to home</a>
+	<a  class="btn btn-success mb-3" th:href="@{/list}" role="button">Back to home</a>
 </div>
 
 </body>
