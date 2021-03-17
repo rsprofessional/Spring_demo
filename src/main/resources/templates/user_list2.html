@@ -28,9 +28,9 @@
 		<br><br>
 	</div>				
 	 <!--Search box for searching in user's table -->
-	<form th:action="@{/search}" class="form-inline">
+	<form th:action="@{/search2}" class="form-inline">
 		
-		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="employeeName" placeholder="Search by name" />
+		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="employeeName2" placeholder="Search by name" />
 		
 		<button class="btn btn-success mb-3" type="submit">Search</button>
 		  &nbsp
@@ -42,22 +42,24 @@
     <table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
-			    <th>UserName</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
+				<th>vencimentoBrutoMensal</th>
+				<th>vencimentoBrutoAnual</th>
+				<th>vencimentoLiquidoMensal</th>
+				<th>descontoSegurancaSocial</th>				
 				<th>Delete</th>
 				<th>Update</th>
 			</tr>
 		</thead>
 		
 		<tbody>
-			<tr th:each="tempEmployee : ${users}">
+			<tr th:each="tempEmployee2 : ${users2}">
 				
-				<td th:text="${tempEmployee.userName}" />
-				<td th:text="${tempEmployee.firstName}" />	
-				<td th:text="${tempEmployee.lastName}" />	
-				<td th:text="${tempEmployee.email}" />	
+				<td th:text="${tempEmployee2.firstName}" />	
+				<td th:text="${tempEmployee2.lastName}" />	
+				<td th:text="${tempEmployee2.email}" />	
 				<td>					
 						<!-- Add "delete" button/link -->	
 						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">				

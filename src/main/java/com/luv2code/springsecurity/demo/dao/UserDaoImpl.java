@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.luv2code.springsecurity.demo.entity.User;
+import com.luv2code.springsecurity.demo.entity.User2;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -36,7 +37,32 @@ public class UserDaoImpl implements UserDao {
 
 		return theUser;
 	}
+	
+	//NEW METHOD ****************************************
+	@Override
+	@Transactional
+	public User2  findByUserName2(String userName) {
+		
+		// get the current hibernate session
+				Session currentSession = entityManager.unwrap(Session.class);
+				
+				// now retrieve/read from database using username
+				Query<User2> theQuery = currentSession.createQuery("from User2 where firstName=:uName", User2.class);
+				theQuery.setParameter("uName", userName);
+				User2 theUser2 = null;
+				try {
+					theUser2 = theQuery.getSingleResult();
+				} catch (Exception e) {
+					theUser2 = null;
+				}
 
+				return theUser2;
+	}
+
+	
+	
+	
+	
 	@Override
 	@Transactional
 	public void save(User theUser) {

@@ -4,6 +4,7 @@ import com.luv2code.springsecurity.demo.dao.RoleDao;
 import com.luv2code.springsecurity.demo.dao.UserDao;
 import com.luv2code.springsecurity.demo.entity.Role;
 import com.luv2code.springsecurity.demo.entity.User;
+import com.luv2code.springsecurity.demo.entity.User2;
 import com.luv2code.springsecurity.demo.user.CrmUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,6 +40,14 @@ public class UserServiceImpl implements UserService {
 		// check the database if the user already exists
 		return userDao.findByUserName(userName);
 	}
+	
+	//NEW METHOD********
+	
+	 public User2 findByUserName2(String userName2) {
+		 
+		// check the database if the user already exists
+			return userDao.findByUserName2(userName2);
+	 }
 	
 
 	@Override

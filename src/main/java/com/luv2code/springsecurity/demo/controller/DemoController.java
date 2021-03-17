@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.luv2code.springsecurity.demo.entity.User;
+import com.luv2code.springsecurity.demo.entity.User2;
 import com.luv2code.springsecurity.demo.service.UserService;
 
 @Controller
@@ -52,6 +53,23 @@ public class DemoController {
 		
 	}
 	
+//	NEW METHOD  for payment, security social, etc ******************************
+	@GetMapping("/search2")
+	public String search2(@RequestParam("employeeName2") String theName,
+						 Model theModel) {
+		
+		
+		User2 theEmployees2 = userService.findByUserName2(theName);
+		
+		// add to the spring model
+		theModel.addAttribute("users2", theEmployees2);
+		
+		// send to /employees/list
+		return "/user_list2";
+		
+	}
+	
+	
 	@GetMapping("/list")
 	public String listEmployees(Model theModel) {
 		
@@ -64,7 +82,7 @@ public class DemoController {
 		return "/user-list";
 	}
 	
-	//new method for payment, security social, etc
+	//	NEW METHOD  for payment, security social, etc ******************************
 	@GetMapping("/list2")
 	public String listEmployees2(Model theModel) {
 		
